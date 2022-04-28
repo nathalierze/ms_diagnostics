@@ -8,6 +8,7 @@ from .models import schueler, sitzungssummary, gast
 from .serializers import schuelerSerializer, sitzungssummarySerializer
 import random
 from rest_framework import generics
+from .sample_ratio_mismatch import sample_ratio_mismatch
 
 class SchuelerViewSet(viewsets.ModelViewSet):
     """
@@ -15,6 +16,10 @@ class SchuelerViewSet(viewsets.ModelViewSet):
     """
     queryset = schueler.objects.all()
     serializer_class = schuelerSerializer
+
+    def check_user_distribution(self, request):
+        response = sample_ratio_mismatch()
+        return Response(response)
 
     def list(self, request):
         schuelers = schueler.objects.all()

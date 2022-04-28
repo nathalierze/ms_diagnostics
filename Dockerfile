@@ -1,4 +1,5 @@
 FROM python:3.9
+EXPOSE 8002
 ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt

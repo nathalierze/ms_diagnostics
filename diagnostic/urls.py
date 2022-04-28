@@ -4,7 +4,7 @@ from .views import SchuelerViewSet, SitzungssummaryViewSet
 
 urlpatterns = [
     path('schueler', SchuelerViewSet.as_view({
-        'get':'list',
+        'get':'check_user_distribution',
         'post': 'create'
     })),
     path('schueler/<str:pk>', SchuelerViewSet.as_view({
