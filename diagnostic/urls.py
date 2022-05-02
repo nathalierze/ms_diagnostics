@@ -18,5 +18,4 @@ urlpatterns = [
     path('sitzungssummary/<str:pk>', SitzungssummaryViewSet.as_view({
         'get': 'diagnose'
     }))
-
 ]
