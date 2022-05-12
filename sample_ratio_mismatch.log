@@ -11,3 +11,16 @@ INFO:django.utils.autoreload:/app/diagnostic/views.py changed, reloading.
 INFO:django.utils.autoreload:/app/diagnostic/views.py changed, reloading.
 INFO:django.utils.autoreload:/app/diagnostic/sample_ratio_mismatch.py changed, reloading.
 INFO:django.utils.autoreload:/app/diagnostic/views.py changed, reloading.
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 3, Group 4 = 1, Group 5 = 0, Group 6 = 0, Chi = Power_divergenceResult(statistic=6.0, pvalue=0.30621891841327875)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 3, Group 4 = 1, Group 5 = 0, Group 6 = 0, Chi = Power_divergenceResult(statistic=6.0, pvalue=0.30621891841327875)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 3, Group 4 = 1, Group 5 = 0, Group 6 = 0, Chi = Power_divergenceResult(statistic=6.0, pvalue=0.30621891841327875)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 3, Group 4 = 1, Group 5 = 0, Group 6 = 0, Chi = Power_divergenceResult(statistic=6.0, pvalue=0.30621891841327875)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 3, Group 4 = 1, Group 5 = 0, Group 6 = 0, Chi = Power_divergenceResult(statistic=6.0, pvalue=0.30621891841327875)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 2, Group 4 = 1, Group 5 = 0, Group 6 = 1, Chi = Power_divergenceResult(statistic=2.0, pvalue=0.8491450360846096)
+INFO:root:NO SRM -- Total Users=7, Group 1 = 1, Group 2 = 1, Group 3 = 2, Group 4 = 1, Group 5 = 0, Group 6 = 1, Chi = Power_divergenceResult(statistic=2.0, pvalue=0.8491450360846096)
+INFO:django.utils.autoreload:/app/diagnosticService/settings.py changed, reloading.
+INFO:django.utils.autoreload:/app/diagnosticService/settings.py changed, reloading.
+INFO:django.utils.autoreload:/app/diagnosticService/settings.py changed, reloading.
+INFO:django.utils.autoreload:/app/diagnostic/views.py changed, reloading.
+INFO:django.utils.autoreload:/app/diagnostic/views.py changed, reloading.
+INFO:django.utils.autoreload:/app/diagnostic/urls.py changed, reloading.

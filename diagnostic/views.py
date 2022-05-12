@@ -2,8 +2,11 @@ from copyreg import pickle
 from django.shortcuts import render
 
 # Create your views here.
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, permissions, authentication
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from diagnosticService.authentication import TokenAuthentication
+from django.core.exceptions import PermissionDenied
 from .models import schueler, sitzungssummary, gast
 from .serializers import schuelerSerializer, sitzungssummarySerializer
 import random
@@ -16,61 +19,67 @@ class SchuelerViewSet(viewsets.ModelViewSet):
     """
     queryset = schueler.objects.all()
     serializer_class = schuelerSerializer
+    authentication_classes = [authentication.SessionAuthentication, TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def check_user_distribution(self, request):
-        response = sample_ratio_mismatch()
-        return Response(response)
+        try:
+            auth = schueler.objects.get(Loginname = request.headers['Username'])
+            response = sample_ratio_mismatch()
+            return Response(response)
+        except schueler.DoesNotExist:
+            raise PermissionDenied() 
 
-    def list(self, request):
-        schuelers = schueler.objects.all()
-        print(schuelers.last)
-        serializer = schuelerSerializer(schuelers, many=True)
-        return Response(serializer.data)
+    # def list(self, request):
+    #     schuelers = schueler.objects.all()
+    #     print(schuelers.last)
+    #     serializer = schuelerSerializer(schuelers, many=True)
+    #     return Response(serializer.data)
     
-    def create(self, request):
-        serializer = schuelerSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    # def create(self, request):
+    #     serializer = schuelerSerializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def retrieve(self, request, pk=None):
-        schuelers = schueler.objects.get(ID=pk)
-        serializer = schuelerSerializer(schuelers)
-        return Response(serializer.data)
+    # def retrieve(self, request, pk=None):
+    #     schuelers = schueler.objects.get(ID=pk)
+    #     serializer = schuelerSerializer(schuelers)
+    #     return Response(serializer.data)
 
-    def update(self, request, pk=None):
-        schuelers = schueler.objects.get(ID=pk)
-        serializer = schuelerSerializer(instance=schuelers, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+    # def update(self, request, pk=None):
+    #     schuelers = schueler.objects.get(ID=pk)
+    #     serializer = schuelerSerializer(instance=schuelers, data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
-class SitzungssummaryViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint
-    """
-    queryset = sitzungssummary.objects.all()
-    serializer_class = schuelerSerializer
+# class SitzungssummaryViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint
+#     """
+#     queryset = sitzungssummary.objects.all()
+#     serializer_class = schuelerSerializer
 
-    def list(self, request):
-        sitzungssummaries = sitzungssummary.objects.all()
-        print(sitzungssummaries.last)
-        serializer = sitzungssummarySerializer(sitzungssummaries, many=True)
-        return Response(serializer.data)
+#     def list(self, request):
+#         sitzungssummaries = sitzungssummary.objects.all()
+#         print(sitzungssummaries.last)
+#         serializer = sitzungssummarySerializer(sitzungssummaries, many=True)
+#         return Response(serializer.data)
     
-    def create(self, request):
-        serializer = sitzungssummarySerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+#     def create(self, request):
+#         serializer = sitzungssummarySerializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def retrieve(self, request, pk):
-        sitzungssummaries = sitzungssummary.objects.get(ID=pk)
-        serializer = sitzungssummarySerializer(sitzungssummaries)
-        return Response(serializer.data)
+#     def retrieve(self, request, pk):
+#         sitzungssummaries = sitzungssummary.objects.get(ID=pk)
+#         serializer = sitzungssummarySerializer(sitzungssummaries)
+#         return Response(serializer.data)
 
-    def diagnose(self, request, pk):
-        print(pk)
-        diagnose = 4555
+#     def diagnose(self, request, pk):
+#         print(pk)
+#         diagnose = 4555
 
-        return Response(diagnose)
+#         return Response(diagnose)

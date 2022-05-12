@@ -4,4 +4,5 @@ mysqlclient==2.0.1
 django-mysql==3.9
 django-cors-headers==3.5.0
 numpy == 1.22.3
-scipy ==1.8.0
+scipy
+gunicorn==18.0.0
