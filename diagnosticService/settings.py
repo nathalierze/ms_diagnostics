@@ -26,9 +26,8 @@ SECRET_KEY = 'django-insecure-c@4wp(*ft)9(t0@*h_856jz9l9vk37!okp9rd%uu7r7+g2%y3a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['host.docker.internal', 'ortho-randomize-staging.herokuapp.com',
-    'localhost',
-    'ortho-randomize-prod.herokuapp.com']
+ALLOWED_HOSTS = ['host.docker.internal', 'ortho-diagnostics-staging.herokuapp.com',
+    'localhost', 'ortho-diagnostics-prod.herokuapp.com']
 
 
 # Application definition
