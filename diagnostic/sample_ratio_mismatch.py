@@ -8,7 +8,7 @@ logging.basicConfig(filename='sample_ratio_mismatch.log', level=logging.INFO, fo
 
 def sample_ratio_mismatch():
     
-    schuelers = schueler.objects.all()
+    schuelers = schueler.objects.filter(interventiongroup >0)
     serialized = serializers.serialize("json", schuelers, fields=('ID,interventiongroup'))
     user_data = json.loads(serialized)
 
