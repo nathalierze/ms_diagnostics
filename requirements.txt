@@ -6,3 +6,4 @@ django-cors-headers==3.5.0
 numpy == 1.22.3
 scipy
 gunicorn==18.0.0
+sentry-sdk
