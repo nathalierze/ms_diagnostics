@@ -24,7 +24,7 @@ class SchuelerViewSet(viewsets.ModelViewSet):
 
     def check_user_distribution(self, request):
         try:
-            auth = schueler.objects.get(Loginname = request.headers['Username'])
+            #auth = schueler.objects.get(Loginname = request.headers['Username'])
             response = sample_ratio_mismatch()
             return Response(response)
         except schueler.DoesNotExist:
