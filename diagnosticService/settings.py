@@ -154,17 +154,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+##disabled sentry
+# sentry_sdk.init(
+#     dsn="https://17eebfd152604a77a9eeb725f515a903@o1252477.ingest.sentry.io/6418720",
+#     integrations=[DjangoIntegration()],
 
-sentry_sdk.init(
-    dsn="https://17eebfd152604a77a9eeb725f515a903@o1252477.ingest.sentry.io/6418720",
-    integrations=[DjangoIntegration()],
+#     # Set traces_sample_rate to 1.0 to capture 100%
+#     # of transactions for performance monitoring.
+#     # We recommend adjusting this value in production.
+#     traces_sample_rate=1.0,
 
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
+#     # If you wish to associate users to errors (assuming you are using
+#     # django.contrib.auth) you may enable sending PII data.
+#     send_default_pii=True
+# )
