@@ -1,21 +1,9 @@
 from django.urls import path
 
-from .views import SchuelerViewSet #, SitzungssummaryViewSet
+from .views import SchuelerViewSet
 
 urlpatterns = [
     path('schueler', SchuelerViewSet.as_view({
         'get':'check_user_distribution'
-       # 'post': 'create'
     }))
-    # path('schueler/<str:pk>', SchuelerViewSet.as_view({
-    #     'get': 'retrieve',
-    #     'post':'update'
-    # })),
-    # path('sitzungssummary', SitzungssummaryViewSet.as_view({
-    #     'get':'list',
-    #     'post': 'create'
-    # })),
-    # path('sitzungssummary/<str:pk>', SitzungssummaryViewSet.as_view({
-    #     'get': 'diagnose'
-    # }))
 ]

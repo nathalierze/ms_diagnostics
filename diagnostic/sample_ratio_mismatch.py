@@ -7,7 +7,6 @@ import logging
 logging.basicConfig(filename='sample_ratio_mismatch.log', level=logging.INFO, force=True)
 
 def sample_ratio_mismatch():
-    print("in sample r m")
     schuelers = schueler.objects.exclude(interventiongroup='0')
     serialized = serializers.serialize("json", schuelers, fields=('ID,interventiongroup'))
     user_data = json.loads(serialized)
