@@ -13,10 +13,13 @@ import random
 from rest_framework import generics
 from .sample_ratio_mismatch import sample_ratio_mismatch
 
+
 class SchuelerViewSet(viewsets.ModelViewSet):
     """
-    API endpoint
+    API endpoint to check user distribution among the intervention groups
+    returns response SRM
     """
+
     queryset = schueler.objects.all()
     serializer_class = schuelerSerializer
     authentication_classes = [authentication.SessionAuthentication, TokenAuthentication]
@@ -24,8 +27,8 @@ class SchuelerViewSet(viewsets.ModelViewSet):
 
     def check_user_distribution(self, request):
         try:
-            auth = schueler.objects.get(Loginname = request.headers['Username'])
+            auth = schueler.objects.get(Loginname=request.headers["Username"])
             response = sample_ratio_mismatch()
             return Response(response)
         except schueler.DoesNotExist:
-            raise PermissionDenied() 
+            raise PermissionDenied()

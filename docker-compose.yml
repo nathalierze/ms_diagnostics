@@ -17,9 +17,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: orthogra_db1
-      MYSQL_USER: orthogra_1 #root
-      MYSQL_PASSWORT: mZGK37Gt1cGBmx8F #test
-      MYSQL_ROOT_PASSWORD: mZGK37Gt1cGBmx8F #test
+      MYSQL_USER: root
+      MYSQL_PASSWORT: test
+      MYSQL_ROOT_PASSWORD: test
     volumes:
       - .dbdata:/var/lib/mysql
     ports:
