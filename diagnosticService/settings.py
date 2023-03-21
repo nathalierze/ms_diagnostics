@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # old BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "#####################################################"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -95,10 +99,10 @@ WSGI_APPLICATION = "diagnosticService.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "orthogra_db1",
-        "USER": "orthogra_1",
-        "PASSWORD": "#########",
-        "HOST": "188.40.29.147",
+        "NAME": env('DB_NAME'),
+        "USER": env('DB_USER'),
+        "PASSWORD": env('DB_PASS'),
+        "HOST":  env('DB_HOST'),
         "PORT": "3306",
     }
 }

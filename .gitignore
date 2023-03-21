@@ -6,3 +6,4 @@ __pycache__
 quickstart
 migrations
 sample_ratio_mismatch.log
+config
